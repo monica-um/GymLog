@@ -8,13 +8,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.mum.gymlog.database.GymLogRepository;
+import com.mum.gymlog.database.entities.GymLog;
 import com.mum.gymlog.databinding.ActivityMainBinding;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
+    private GymLogRepository repository;
 
     public static final String TAG = "GYMLOG";
 
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         binding = binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        repository = new GymLogRepository((getApplication()));
+
         binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
 
         binding.logButton.setOnClickListener(new View.OnClickListener() {
@@ -35,11 +40,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Takes entered info from user and displays
                 getInformationFromDisplay();
+                insertGymLogRecord();
                 updateDisplay();
             }
         });
     }
 
+    private void insertGymLogRecord() {
+        GymLog log = new GymLog(mExercise, mWeight, mReps);
+        repository.insertGymLog(log);
+    }
     private void updateDisplay() {
         String currentInfo = binding.logDisplayTextView.getText().toString();
         Log.d(TAG, "Current info: " + currentInfo);
