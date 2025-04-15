@@ -23,7 +23,7 @@ import java.util.concurrent.Executors;
 // must be false
 @Database(entities = {GymLog.class, User.class}, version = 1, exportSchema = false)
 public abstract class GymLogDatabase extends RoomDatabase {
-    public static final String USER_TABLE = "usertable";
+    public static final String  USER_TABLE = "usertable";
     private static final String DATABASE_NAME = "GymLogDatabase";
 
     public static final String GYM_LOG_TABLE = "gymLogTable";

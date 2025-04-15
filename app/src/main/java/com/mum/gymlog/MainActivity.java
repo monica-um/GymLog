@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+        // gets instance of repository then used to retrieve info from database
         repository = GymLogRepository.getRepository(getApplication());
 
         binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
