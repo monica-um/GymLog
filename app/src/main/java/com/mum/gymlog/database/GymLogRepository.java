@@ -10,6 +10,7 @@ import com.mum.gymlog.MainActivity;
 import com.mum.gymlog.database.entities.User;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -90,6 +91,11 @@ public class GymLogRepository {
         return userDAO.getUserByUserId(userId);
     }
 
+    public LiveData<List<GymLog>> getAllLogsByUserIdLiveData (int loggedInUserId) {
+        return gymLogDAO.getRecordsByUserIdLiveData(loggedInUserId);
+    }
+
+    @Deprecated
     public ArrayList<GymLog> getAllLogsByUserId(int loggedInUserId) {
         // Gets reference to process something one data received
         Future<ArrayList<GymLog>> future = GymLogDatabase.databaseWriteExecutor.submit(
