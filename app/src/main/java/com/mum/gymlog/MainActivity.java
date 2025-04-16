@@ -78,28 +78,15 @@ public class MainActivity extends AppCompatActivity {
         // write username to shared preference
         updateSharedPreference();
 
-        // TODO: REMOVE TWO LINES BELOW
-//        binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
-//        updateDisplay();
-
         binding.logButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Takes entered info from user and displays
                 getInformationFromDisplay();
                 insertGymLogRecord();
-                // TODO: REMOVE LINE BELOW
-//                updateDisplay();
             }
         });
 
-        // TODO: REMOVE THIS BLOCK
-//        binding.exerciseInputEditText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                updateDisplay();
-//            }
-//        });
     }
 
     private void loginUser(Bundle savedInstanceState) {
@@ -124,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         // watches object for updates
         userObserver.observe(this, user -> {
             if (user != null) {
+                this.user = user;
                 invalidateOptionsMenu();
             }
         });
@@ -224,14 +212,13 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<GymLog> allLogs = repository.getAllLogsByUserId(loggedInUserId);
 
         if (allLogs.isEmpty()) {
-//            binding.logDisplayTextView.setText(R.string.nothing_to_show_time_to_hit_the_gym);
+
         }
 
         StringBuilder sb = new StringBuilder();
         for (GymLog log : allLogs) {
             sb.append(log);
         }
-//        binding.logDisplayTextView.setText(sb.toString());
     }
 
     private void getInformationFromDisplay() {
