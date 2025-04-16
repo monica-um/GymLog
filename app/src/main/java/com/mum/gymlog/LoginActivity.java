@@ -52,10 +52,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 // sharedPreferences is information shared system wide
                 if (password.equals(user.getPassword())) {
-                    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(MainActivity.SHARED_PREFERENCE_USERID_KEY, Context.MODE_PRIVATE);
-                    SharedPreferences.Editor sharedPrefEditor= sharedPreferences.edit();
-                    sharedPrefEditor.putInt(MainActivity.SHARED_PREFERENCE_USERID_KEY, user.getId());
-                    sharedPrefEditor.apply();
                     startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
                 }
                 else {
