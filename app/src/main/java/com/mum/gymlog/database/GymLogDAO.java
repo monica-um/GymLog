@@ -7,8 +7,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.mum.gymlog.database.entities.GymLog;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Dao
