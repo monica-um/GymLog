@@ -1,3 +1,9 @@
+/*
+@author: Monica Um
+@date: 20250415
+@abstract: sets up database with workout log information to include: exercise, weight, and reps.
+*/
+
 package com.mum.gymlog.database.entities;
 
 import androidx.annotation.NonNull;

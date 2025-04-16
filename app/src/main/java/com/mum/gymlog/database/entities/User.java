@@ -1,3 +1,9 @@
+/*
+@author: Monica Um
+@date: 20250415
+@abstract: database that is set up for users to include username, password, and administrative status
+*/
+
 package com.mum.gymlog.database.entities;
 
 import androidx.room.Entity;
@@ -65,6 +71,4 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
-
 }

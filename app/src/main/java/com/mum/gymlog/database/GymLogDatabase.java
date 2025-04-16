@@ -1,3 +1,9 @@
+/*
+@author: Monica Um
+@date: 20250415
+@abstract: defines Room database to manage user and log data, while granting access to DAOs
+*/
+
 package com.mum.gymlog.database;
 
 import android.content.Context;

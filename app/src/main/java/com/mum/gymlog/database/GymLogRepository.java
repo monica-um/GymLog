@@ -1,3 +1,9 @@
+/*
+@author: Monica Um
+@date: 20250415
+@abstract: handles data for modifying user/log data from the database
+*/
+
 package com.mum.gymlog.database;
 
 import android.app.Application;
